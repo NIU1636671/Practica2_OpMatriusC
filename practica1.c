@@ -1,5 +1,12 @@
 #include <stdio.h>
+const int N = 512;
+int Mat1[N][N], Mat2[N][N];
+int Vect1[N], Vect2[N];
 
+void main()
+{
+    initMats();
+}
 void initMats()
 {
     int i, j;
@@ -15,4 +22,8 @@ void initMats()
         Vect1[i] = rand() % 100;
         Vect2[i] = rand() % 100;
     }
+}
+
+int mulMat(int Mat1, int Mat2, int MatRes)
+{
 }
