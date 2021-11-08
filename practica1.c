@@ -49,6 +49,14 @@ void Sapxy(int k, int Vect1[512], int Vect2[512], int VectRes[512])
         VectRes[i] = k * Vect1[i] + Vect2[i];
 }
 
+void transMat(int Matriu[512][512], int Transposada[512][512])
+{
+    for (int i = 0; i < 512; ++i)
+        for (int j = 0; j < 512; ++j)
+        {
+            Transposada[j][i] = Matriu[i][j];
+        }
+}
 void imprimirMatriu(int MatRes[512][512])
 {
     int fila, columna;
