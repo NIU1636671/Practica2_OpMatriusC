@@ -43,6 +43,12 @@ int mulMat(int Mat1[512][512], int Mat2[512][512], int MatRes[512][512])
     }
 }
 
+void Sapxy(int k, int Vect1[512], int Vect2[512], int VectRes[512])
+{
+    for (int i = 0; i < 512; ++i)
+        VectRes[i] = k * Vect1[i] + Vect2[i];
+}
+
 void imprimirMatriu(int MatRes[512][512])
 {
     int fila, columna;
