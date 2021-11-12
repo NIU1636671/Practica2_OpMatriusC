@@ -60,6 +60,7 @@ void transMat(int Matriu[512][512], int Transposada[512][512])
         }
 }
 /*Exercici 4*/
+
 int sumDiagonal(int Matriu[512][512])
 {
     int sumaDiag = 0;
