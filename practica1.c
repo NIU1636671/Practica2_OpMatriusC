@@ -59,6 +59,15 @@ void transMat(int Matriu[512][512], int Transposada[512][512])
             Transposada[j][i] = Matriu[i][j];
         }
 }
+/*Exercici 4*/
+int sumDiagonal(int Matriu[512][512])
+{
+    int sumaDiag = 0;
+    int i;
+    for (i = 0; i < 512; i++)
+        sumaDiag = sumaDiag + Matriu[i][i];
+    return sumaDiag
+}
 
 /*Imprimir matrius*/
 void imprimirMatriu(int MatRes[512][512])
