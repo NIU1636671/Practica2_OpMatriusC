@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define N 512;
+#define N 512
 int Mat1[512][512], Mat2[512][512], MatRes[512][512];
 int Vect1[512], Vect2[512];
 
@@ -10,6 +10,8 @@ int main()
     mulMat(Mat1, Mat2, MatRes);
     imprimirMatriu(MatRes);
 }
+
+/*Inicialitzar matrius*/
 void initMats()
 {
     int i, j;
@@ -26,7 +28,7 @@ void initMats()
         Vect2[i] = rand() % 100;
     }
 }
-
+/*Exercici 1*/
 int mulMat(int Mat1[512][512], int Mat2[512][512], int MatRes[512][512])
 {
     int i, j, k;
@@ -42,13 +44,13 @@ int mulMat(int Mat1[512][512], int Mat2[512][512], int MatRes[512][512])
         }
     }
 }
-
+/*Exercici 2*/
 void Sapxy(int k, int Vect1[512], int Vect2[512], int VectRes[512])
 {
     for (int i = 0; i < 512; ++i)
         VectRes[i] = k * Vect1[i] + Vect2[i];
 }
-
+/*Exercici 3*/
 void transMat(int Matriu[512][512], int Transposada[512][512])
 {
     for (int i = 0; i < 512; ++i)
@@ -57,6 +59,8 @@ void transMat(int Matriu[512][512], int Transposada[512][512])
             Transposada[j][i] = Matriu[i][j];
         }
 }
+
+/*Imprimir matrius*/
 void imprimirMatriu(int MatRes[512][512])
 {
     int fila, columna;
