@@ -82,3 +82,16 @@ void imprimirMatriu(int MatRes[512][512])
         printf("\n");
     }
 }
+/*Exercici 5*/
+int sumElement(int Matriu[512][512], int Sumes[512])
+{
+    int i, j;
+    for (i = 0; i < 512; i++)
+    {
+        for (j = 0; j < 512; j++)
+        {
+            Sumes[i] += Matriu[i][j];
+        }
+    }
+    return Sumes;
+}
