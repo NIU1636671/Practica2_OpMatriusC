@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define N 3
-int Mat1[N][N], Mat2[N][N], MatRes[N][N], tempM1M2[N][N];
-int Vect1[N], Vect2[N];
+#define N 512
+int Mat1[N][N], Mat2[N][N], MatRes[N][N], tempM1M2[N][N], tempTransM1M2[N][N];
+int Vect1[N], Vect2[N], tempV1V2[N], tempC[N];
 
 /*Inicialitzar matrius*/
 void initMats()
@@ -117,5 +117,34 @@ void imprimirVector(int vector[N])
 
 int main()
 {
+    int mat1Perm, mat2Perm;
     initMats();
+    mulMat(Mat1, Mat2, tempM1M2);
+    /*Mostrar per pantalla tempM1M2[10][10-19]*/
+    Saxpy(4, Vect1, Vect2, tempV1V2);
+    /*Mostrar per pantalla tempV1V2[100-119]*/
+    transMat(tempM1M2, tempTransM1M2);
+    /*Mostrar per pantalla tempM1M2[10-19][10]*/
+    imprimirMatriu(Mat1);
+    mat1Perm = PermutaF(Mat1, 5, 10);
+    mat2Perm = PermutaF(Mat2, 100, 512);
+    if (mat1Perm = 1)
+    {
+        printf("S'ha pogut permutar les files a Mat1\n");
+    }
+    else
+    {
+        printf("No s'ha pogut permutar les files a Mat1\n");
+    }
+    if (mat2Perm = 1)
+    {
+        printf("S'ha pogut permutar les files a Mat2\n");
+    }
+    else
+    {
+        printf("No s'ha pogut permutar les files a Mat2\n");
+    }
+    printf("Suma diagonal de tempTransM1M2: %d\n", sumDiagonal(tempTransM1M2));
+    sumElement(tempTransM1M2, tempC);
+    /*Mostrar per pantalla tempC[100-419]*/
 }
