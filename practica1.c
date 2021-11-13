@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define N 3
-int Mat1[N][N], Mat2[N][N], MatRes[N][N];
+int Mat1[N][N], Mat2[N][N], MatRes[N][N], tempM1M2[N][N];
 int Vect1[N], Vect2[N];
 
 /*Inicialitzar matrius*/
@@ -76,9 +76,21 @@ int sumElement(int Matriu[N][N], int Sumes[N])
     }
     return Sumes;
 }
-
+/*Exercici 6*/
 int PermutaF(int Matriu[N][N], int fila1, int fila2)
 {
+    int temp, i;
+    if (fila1 > N || fila2 > N)
+    {
+        return 0;
+    }
+    for (i = 0; i < N; i++)
+    {
+        temp = Matriu[fila1 - 1][i];
+        Matriu[fila1 - 1][i] = Matriu[fila2 - 1][i];
+        Matriu[fila2 - 1][i] = temp;
+    }
+    return 1;
 }
 
 /*Imprimir matrius i vectors*/
@@ -105,9 +117,5 @@ void imprimirVector(int vector[N])
 
 int main()
 {
-    int resultat[N] = {};
     initMats();
-    imprimirMatriu(Mat1);
-    sumElement(Mat1, resultat);
-    imprimirVector(resultat);
 }
