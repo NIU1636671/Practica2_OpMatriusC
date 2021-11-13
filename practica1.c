@@ -64,7 +64,7 @@ int sumDiagonal(int Matriu[N][N])
 }
 
 /*Exercici 5*/
-int *sumElement(int Matriu[N][N], int Sumes[N])
+int sumElement(int Matriu[N][N], int Sumes[N])
 {
     int i, j;
     for (i = 0; i < N; i++)
@@ -91,28 +91,6 @@ int PermutaF(int Matriu[N][N], int fila1, int fila2)
         Matriu[fila2 - 1][i] = temp;
     }
     return 1;
-}
-
-/*Imprimir matrius i vectors*/
-void imprimirMatriu(int MatRes[N][N])
-{
-    int fila, columna;
-    for (fila = 0; fila < N; fila++)
-    {
-        for (columna = 0; columna < N; columna++)
-        {
-            printf("%d     ", MatRes[fila][columna]);
-        }
-        printf("\n");
-    }
-}
-void imprimirVector(int vector[N])
-{
-    int i;
-    for (i = 0; i < N; i++)
-    {
-        printf("%d     ", vector[i]);
-    }
 }
 
 int main()
