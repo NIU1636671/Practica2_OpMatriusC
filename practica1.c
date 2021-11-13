@@ -1,43 +1,36 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define N 512
-int Mat1[512][512], Mat2[512][512], MatRes[512][512];
-int Vect1[512], Vect2[512];
-
-int main()
-{
-    initMats();
-    mulMat(Mat1, Mat2, MatRes);
-    imprimirMatriu(MatRes);
-}
+#define N 3
+int Mat1[N][N], Mat2[N][N], MatRes[N][N];
+int Vect1[N], Vect2[N];
 
 /*Inicialitzar matrius*/
 void initMats()
 {
     int i, j;
     srand(8824553);
-    for (i = 0; i < 512; i++)
-        for (j = 0; j < 512; j++)
+    for (i = 0; i < N; i++)
+        for (j = 0; j < N; j++)
         {
             Mat1[i][j] = rand() % 100;
             Mat2[i][j] = rand() % 100;
         }
-    for (i = 0; i < 512; i++)
+    for (i = 0; i < N; i++)
     {
         Vect1[i] = rand() % 100;
         Vect2[i] = rand() % 100;
     }
 }
 /*Exercici 1*/
-int mulMat(int Mat1[512][512], int Mat2[512][512], int MatRes[512][512])
+int mulMat(int Mat1[N][N], int Mat2[N][N], int MatRes[N][N])
 {
     int i, j, k;
-    for (i = 0; i < 512; i++)
+    for (i = 0; i < N; i++)
     {
-        for (j = 0; j < 512; j++)
+        for (j = 0; j < N; j++)
         {
             MatRes[i][j] = 0;
-            for (k = 0; k < 512; k++)
+            for (k = 0; k < N; k++)
             {
                 MatRes[i][j] += Mat1[i][k] * Mat2[k][j];
             }
@@ -45,54 +38,76 @@ int mulMat(int Mat1[512][512], int Mat2[512][512], int MatRes[512][512])
     }
 }
 /*Exercici 2*/
-void Sapxy(int k, int Vect1[512], int Vect2[512], int VectRes[512])
+void Saxpy(int k, int Vect1[N], int Vect2[N], int VectRes[N])
 {
-    for (int i = 0; i < 512; ++i)
+    for (int i = 0; i < N; ++i)
         VectRes[i] = k * Vect1[i] + Vect2[i];
 }
 /*Exercici 3*/
-void transMat(int Matriu[512][512], int Transposada[512][512])
+void transMat(int Matriu[N][N], int Transposada[N][N])
 {
-    for (int i = 0; i < 512; ++i)
-        for (int j = 0; j < 512; ++j)
+    for (int i = 0; i < N; ++i)
+        for (int j = 0; j < N; ++j)
         {
             Transposada[j][i] = Matriu[i][j];
         }
 }
 /*Exercici 4*/
 
-int sumDiagonal(int Matriu[512][512])
+int sumDiagonal(int Matriu[N][N])
 {
     int sumaDiag = 0;
     int i;
-    for (i = 0; i < 512; i++)
+    for (i = 0; i < N; i++)
         sumaDiag = sumaDiag + Matriu[i][i];
     return sumaDiag;
 }
 
-/*Imprimir matrius*/
-void imprimirMatriu(int MatRes[512][512])
+/*Exercici 5*/
+int sumElement(int Matriu[N][N], int Sumes[N])
+{
+    int i, j;
+    for (i = 0; i < N; i++)
+    {
+        for (j = 0; j < N; j++)
+        {
+            Sumes[i] += Matriu[j][i];
+        }
+    }
+    return Sumes;
+}
+
+int PermutaF(int Matriu[N][N], int fila1, int fila2)
+{
+}
+
+/*Imprimir matrius i vectors*/
+void imprimirMatriu(int MatRes[N][N])
 {
     int fila, columna;
-    for (fila = 0; fila < 4; fila++)
+    for (fila = 0; fila < N; fila++)
     {
-        for (columna = 0; columna < 4; columna++)
+        for (columna = 0; columna < N; columna++)
         {
             printf("%d     ", MatRes[fila][columna]);
         }
         printf("\n");
     }
 }
-/*Exercici 5*/
-int sumElement(int Matriu[512][512], int Sumes[512])
+void imprimirVector(int vector[N])
 {
-    int i, j;
-    for (i = 0; i < 512; i++)
+    int i;
+    for (i = 0; i < N; i++)
     {
-        for (j = 0; j < 512; j++)
-        {
-            Sumes[i] += Matriu[i][j];
-        }
+        printf("%d     ", vector[i]);
     }
-    return Sumes;
+}
+
+int main()
+{
+    int resultat[N] = {};
+    initMats();
+    imprimirMatriu(Mat1);
+    sumElement(Mat1, resultat);
+    imprimirVector(resultat);
 }
