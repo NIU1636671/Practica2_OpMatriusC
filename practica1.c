@@ -116,7 +116,7 @@ int main()
     printf("tempTransM1M2: ");
     for (i = 10; i <= 19; i++)
     {
-        printf("%d     ", tempM1M2[i][10]);
+        printf("%d     ", tempTransM1M2[i][10]);
     }
     mat1Perm = PermutaF(Mat1, 5, 10);
     mat2Perm = PermutaF(Mat2, 100, 512);
