@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+/*Declarar variables globals (constants, matrius i vectors)*/
 #define N 512
 int Mat1[N][N], Mat2[N][N], MatRes[N][N], tempM1M2[N][N], tempTransM1M2[N][N];
 int Vect1[N], Vect2[N], tempV1V2[N], tempC[N];
@@ -138,9 +139,9 @@ int main()
     }
     printf("Suma diagonal de tempTransM1M2: %d\n", sumDiagonal(tempTransM1M2));
     sumElement(tempTransM1M2, tempC);
-    /*Mostrar per pantalla tempC[100-419]*/
+    /*Mostrar per pantalla tempC[400-419]*/
     printf("tempC: ");
-    for (i = 100; i <= 419; i++)
+    for (i = 400; i <= 419; i++)
     {
         printf("%d     ", tempC[i]);
     }
